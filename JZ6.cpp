@@ -9,7 +9,7 @@
 */
 class Solution {
 public:
-    vector<int> printListFromTailToHead(ListNode* head) {
+    vector<int> reversePrint(ListNode* head) {
         vector<int> result;
 		while(head!=NULL) {
 			result.push_back(head->val);
