@@ -7,6 +7,7 @@ struct TreeNode {
 			val(x), left(NULL), right(NULL) {
 	}
 };*/
+//递归
 class Solution {
 public:
     int TreeDepth(TreeNode* pRoot) {
