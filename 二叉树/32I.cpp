@@ -14,7 +14,7 @@ public:
         if(!root)return ans;
         ans.push_back(root->val);
         queue<TreeNode*>q;
-        q.push(root);
+        q.push(root );
         while(!q.empty()){
             auto it=q.front();
             q.pop();
