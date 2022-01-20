@@ -1,32 +1,28 @@
 /**
+ * Definition for a binary tree node.
  * struct TreeNode {
- *	int val;
- *	struct TreeNode *left;
- *	struct TreeNode *right;
- *	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+// dfs O(n) O(n)
 class Solution {
-public:
-    /**
-     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
-     *
-     * 
-     * @param pRoot TreeNode类 
-     * @return TreeNode类
-     */
-    TreeNode* Mirror(TreeNode* pRoot) {
-        // write code here
-        if(!pRoot)return pRoot;
-        function<void (TreeNode*)>dfs=[&](TreeNode*x){
-            if(!x)return;
-            TreeNode*now=x->left;
-            x->left=x->right;
-            x->right=now;
-            dfs(x->left);
-            dfs(x->right);
+  public:
+    TreeNode *mirrorTree(TreeNode *root) {
+        if (!root)
+            return root;
+        function<void(TreeNode *)> dfs = [&](TreeNode *root) {
+            if (!root)
+                return;
+            auto it = root->right;
+            root->right = root->left;
+            root->left = it;
+            dfs(root->left);
+            dfs(root->right);
         };
-        dfs(pRoot);
-        return pRoot;
+        dfs(root);
+        return root;
     }
 };
